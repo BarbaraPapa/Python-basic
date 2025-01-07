@@ -1,16 +1,9 @@
-# Read the original file
-with open("preproinsulin-seq.txt", "r") as file:
-    raw_sequence = file.read()
-
-# Cleans the sequence by removing ORIGIN, numbers, spaces and "//"
-clean_sequence = ''.join([char for char in raw_sequence if char.isalpha()])
+# Read the manually cleaned file
+with open("preproinsulin-seq-clean.txt", "r") as file:
+    clean_sequence = file.read().strip()
 
 # Make sure the clean sequence is exactly 110 characters long
 assert len(clean_sequence) == 110, "The clean sequence does not have 110 characters!"
-
-# Save the cleaned sequence in a new file
-with open("preproinsulin-seq-clean.txt", "w") as file:
-    file.write(clean_sequence)
 
 
 # Splits the sequence and creates the required files
@@ -32,3 +25,4 @@ with open("ainsulin-seq-clean.txt", "w") as file:
     file.write(clean_sequence[89:110])
 
 print("Files successfully created!")
+
